@@ -164,7 +164,9 @@ class Activity(object):
     def handle_submit(self, sender):
         import portalocker
         with portalocker.Lock(self.results_filename, "a+") as g:
-            g.write("%s::%s::%s::%s\n" % (self.id, getpass.getuser(), datetime.datetime.today(), sender.description))
+            # g.write("%s::%s::%s::%s\n" % (self.id, getpass.getuser(), datetime.datetime.today(), sender.description))
+            user = user = os.getenv('JUPYTERHUB_USER') or getpass.getuser()
+            g.write("%s::%s::%s::%s\n" % (self.id, user, datetime.datetime.today(), sender.description))
             g.flush()
             os.fsync(g.fileno())
         self.output.clear_output()
