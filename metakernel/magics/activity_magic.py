@@ -51,10 +51,10 @@ class Activity(object):
                 if item["type"] == "multiple choice":
                     # FIXME: allow widgets; need to rewrite create/show:
                     question = item["question"]
-                    #if isinstance(question, str):
+                    # if isinstance(question, str):
                     #    question = widgets.HTML(question)
                     options = item["options"]
-                    #for pos in range(len(options)):
+                    # for pos in range(len(options)):
                     #    option = options[pos]
                     #    if isinstance(option, str):
                     #        options[pos] = widgets.HTML(option)
@@ -71,7 +71,8 @@ class Activity(object):
         self.set_question(self.questions[index].question)
         self.set_id(self.questions[index].id)
         self.results_html.layout.visibility = "hidden"
-        self.results_button.layout.visibility = "visible" if (getpass.getuser() in self.instructors) else "hidden"
+        user = os.getenv('JUPYTERHUB_USER') or getpass.getuser()
+        self.results_button.layout.visibility = "visible" if (user in self.instructors) else "hidden"
         self.prev_button.disabled = index == 0
         self.next_button.disabled = index == len(self.questions) - 1
         for i in range(5):
@@ -93,7 +94,7 @@ class Activity(object):
                                                       self.choice_widgets[-1]]))
         self.buttons = []
         for i in range(1, 5 + 1):
-            button = widgets.Button(description = str(i))
+            button = widgets.Button(description=str(i))
             button.on_click(self.handle_submit)
             button.layout.margin = "20px"
             self.buttons.append(button)
@@ -108,9 +109,9 @@ class Activity(object):
         self.top_margin = widgets.HTML("")
         #self.top_margin.layout.height = "100px"
         right_stack = widgets.VBox([self.top_margin, self.results_html])
-        self.stack = widgets.VBox([self.id_widget, self.question_widget] + self.choice_row_list +
-                                  [self.respond_row_widgets,
-                                   widgets.HBox([self.prev_button, self.results_button, self.next_button])])
+        self.stack = widgets.VBox([self.id_widget, self.question_widget] + self.choice_row_list
+                                  + [self.respond_row_widgets,
+                                     widgets.HBox([self.prev_button, self.results_button, self.next_button])])
         self.output = widgets.Output()
         self.top_level = widgets.VBox([widgets.HBox([self.stack, right_stack]),
                                        self.output])
@@ -141,7 +142,7 @@ class Activity(object):
                             if self.show_initial:
                                 if user.strip() not in data:
                                     data[user.strip()] = choice.strip()
-                            else: # shows last
+                            else:  # shows last
                                 data[user.strip()] = choice.strip()
                 line = fp.readline()
         choices = {str(i): 0 for i in range(1, len(self.questions[self.index].options) + 1)}
@@ -149,7 +150,7 @@ class Activity(object):
             if datum not in choices:
                 choices[datum] = 0
             choices[datum] += 1
-        barvalues = [int(value) for key,value in sorted(choices.items())]
+        barvalues = [int(value) for key, value in sorted(choices.items())]
         self.stack.layout.width = "55%"
         try:
             from calysto.graphics import BarChart
