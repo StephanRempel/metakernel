@@ -29,7 +29,7 @@ class REPLWrapper(object):
     :class:`pexpect.spawn` in which a REPL has already been started,
     or a str command to start a new REPL process.
     :param str prompt_regex:  Regular expression representing process prompt, eg ">>>" in Python.
-    :param str continuation_prompt_regex: Regular expression repesenting process continuation prompt, e.g. "..." in Python.
+    :param str continuation_prompt_regex: Regular expression representing process continuation prompt, e.g. "..." in Python.
     :param str prompt_change_cmd: Optional kernel command that sets continuation-of-line-prompts, eg PS1 and PS2, such as "..." in Python.
         to something more unique. If this is ``None``, the prompt will not be
         changed. This will be formatted with the new and continuation prompts
@@ -296,8 +296,8 @@ def bash(command="bash", prompt_regex=re.compile('[$#]')):
     # replwrap seeing that as the next prompt, we'll embed the marker characters
     # for invisible characters in the prompt; these show up when inspecting the
     # environment variable, but not when bash displays the prompt.
-    ps1 = PEXPECT_PROMPT[:5] + u'\[\]' + PEXPECT_PROMPT[5:]
-    ps2 = PEXPECT_CONTINUATION_PROMPT[:5] + u'\[\]' + PEXPECT_CONTINUATION_PROMPT[5:]
+    ps1 = PEXPECT_PROMPT[:5] + r'\[\]' + PEXPECT_PROMPT[5:]
+    ps2 = PEXPECT_CONTINUATION_PROMPT[:5] + r'\[\]' + PEXPECT_CONTINUATION_PROMPT[5:]
     prompt_change_cmd = u"PS1='{0}' PS2='{1}' PROMPT_COMMAND=''".format(ps1, ps2)
 
     if os.name == 'nt':

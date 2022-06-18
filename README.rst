@@ -3,7 +3,7 @@ A Jupyter kernel base class in Python which includes core magic functions (inclu
 .. image:: https://badge.fury.io/py/metakernel.png/
     :target: http://badge.fury.io/py/metakernel
 
-.. image:: https://coveralls.io/repos/Calysto/metakernel/badge.png?branch=master
+.. image:: https://coveralls.io/repos/Calysto/metakernel/badge.png?branch=main
   :target: https://coveralls.io/r/Calysto/metakernel
 
 .. image:: https://travis-ci.org/Calysto/metakernel.svg
@@ -46,7 +46,7 @@ Kernels based on Metakernel
 - gnuplot_kernel, https://github.com/has2k1/gnuplot_kernel
 - spylon_kernel, https://github.com/mariusvniekerk/spylon-kernel
 - wolfram_kernel, https://github.com/mmatera/iwolfram
-- sas_kernel, https://github.com/palmer0914/sas_kernel
+- sas_kernel, https://github.com/sassoftware/sas_kernel
 - pysysh_kernel, https://github.com/Jaesin/psysh_kernel
 - calysto_bash, https://github.com/Calysto/calysto_bash
 
@@ -204,13 +204,13 @@ Example notebooks can be viewed here_.
 
 Documentation is available online_. Magics have interactive help_ (and online).
 
-For version information, see the Revision History_.
+For version information, see the Changelog_.
 
 
-.. _here: http://nbviewer.ipython.org/github/Calysto/metakernel/tree/master/examples/
+.. _here: http://nbviewer.ipython.org/github/Calysto/metakernel/tree/main/examples/
 
-.. _help: https://github.com/Calysto/metakernel/blob/master/metakernel/magics/README.md
+.. _help: https://github.com/Calysto/metakernel/blob/main/metakernel/magics/README.md
 
 .. _online: http://Calysto.github.io/metakernel/
 
-.. _History: https://github.com/Calysto/metakernel/blob/master/HISTORY.rst
+.. _Changelog: https://github.com/Calysto/metakernel/blob/main/CHANGELOG.md

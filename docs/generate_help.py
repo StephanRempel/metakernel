@@ -22,6 +22,9 @@ for magic in sorted(kernel.cell_magics.keys()):
     text += "## `" + prefix + prefix + magic + "`\n\n"
     text += kernel.get_help_on(prefix + prefix + magic) + "\n\n"
 
+# Fix for "Title underline too short".
+text = text.replace('-------', '--------')
+
 with open(path, 'w') as fid:
     fid.write(text)
 
@@ -29,5 +32,5 @@ print("done!")
 
 if text != prev:
     print('Readme changed, please commit the changes')
-    print('If this is on Travis, run `make help` locally to regenerate')
+    print('If this is on CI, run `make help` locally to regenerate')
     sys.exit(1)

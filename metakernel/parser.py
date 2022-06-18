@@ -28,7 +28,7 @@ class Parser(object):
         help_suffix : str
             Character to use for help suffix.
         """
-        self.func_call_regex = re.compile(function_call_regex + '\Z',
+        self.func_call_regex = re.compile(function_call_regex + r'\Z',
                                           re.UNICODE)
         default_regex = r'[^\d\W][\w\.]*'
         self.id_regex = re.compile(r'(\{0}+{1}\Z|{2}\Z|\Z)'.format(
@@ -153,7 +153,7 @@ class Parser(object):
           and handled by the kernel.
 
         - Help magic is special:
-        -- It can be at the end of the line and takes precidence.
+        -- It can be at the end of the line and takes precedence.
         -- No code is executed when a help magic is present.
 
         Examples
