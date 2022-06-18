@@ -8,6 +8,7 @@
 This magic will load the JSON in the filename.
 
 Examples:
+
     %activity /home/teacher/activity1
     %activity /home/teacher/activity1 new
     %activity /home/teacher/activity1 edit
@@ -23,6 +24,7 @@ Note that this is not the same directory as used by
 the %shell magics.
 
 Example:
+
     %cd ..
 
 ## `%connect_info`
@@ -35,6 +37,7 @@ if you are interested in making additional connections to the
 running kernel.
 
 Example:
+
     %connect_info
 
 Paste the given JSON into a file, and connect with:
@@ -63,6 +66,7 @@ This line magic will render the Graphiz CODE, and render
 it as an image.
 
 Example:
+  
     %dot graph A { a->b };
 
 ## `%download`
@@ -74,6 +78,7 @@ default it will use the same filename as the URL.
 You can give it another name using -f.
 
 Examples:
+  
     %%download http://some/file/from/internet.txt -f myfile.txt
     %%download http://some/file/from/program.ss
 
@@ -92,6 +97,7 @@ you edit it.
 This is a shortcut for %load, and appending a "%%file" as first line.
 
 Example:
+  
     %edit myprogram.ss
 
 ## `%get`
@@ -101,6 +107,7 @@ Example:
 This line magic is used to get a variable.
 
 Examples:
+  
     %get x
 
 ## `%help`
@@ -115,6 +122,7 @@ This line magic will send the CODE to the browser as
 HTML.
 
 Example:
+  
     %html <u>This is underlined!</u>
 
 ## `%include`
@@ -128,6 +136,7 @@ You can have multiple %include's at the beginning of a cell,
 and they will be included in order.
 
 Examples:
+  
     %include myprog.py
     %include myprog1.py myprog2.py
 
@@ -136,6 +145,7 @@ Examples:
 %install PACKAGE - install package
 
 Example:
+  
     %install calico-spell-check
 
 ## `%install_magic`
@@ -146,6 +156,7 @@ This line magic will copy the file at the URL into your
 personal magic folder.
 
 Example:
+  
     %install_magic http://path/to/some/magic.py
 
 ## `%javascript`
@@ -156,6 +167,7 @@ This line magic will execute the CODE on the line as
 JavaScript in the browser.
 
 Example:
+  
     %javascript console.log("Print in the browser console")
 
 ## `%jigsaw`
@@ -165,6 +177,7 @@ Example:
 This line magic will allow visual code editing or generation.
 
 Examples:
+  
     %jigsaw Processing
     %jigsaw Python
     %jigsaw Processing --workspace workspace1 --height 600
@@ -219,6 +232,7 @@ Options:
 This line magic will display the TEXT on the line as LaTeX.
 
 Example:
+  
     %latex $x_1 = \dfrac{a}{b}$
 
 ## `%load`
@@ -229,6 +243,7 @@ This line magic will get the contents of a file and load it
 into the next cell.
 
 Example:
+  
     %load myprog.py
 
 ## `%ls`
@@ -238,6 +253,7 @@ Example:
 This line magic is used to list the directory contents.
 
 Examples:
+  
     %ls .
     %ls ..
 
@@ -254,6 +270,7 @@ magics installed in the system and in your personal magic
 folder.
 
 Example:
+  
     %lsmagic
 
 ## `%macro`
@@ -266,6 +283,7 @@ This line macro will execute, show, list, or delete the
 named macro.
 
 Examples:
+  
     %macro renumber-cells
 
     %%macro test
@@ -299,6 +317,7 @@ Also, monkeypatches the IPython.display.display
 to work with metakernel-based kernels.
 
 Example:
+
     %matplotlib notebook
 
     import matplotlib.pyplot as plt
@@ -334,6 +353,7 @@ This line magic will configure the plot settings for this
 language.
 
 Examples:
+  
     %plot qt --format=png
     %plot inline -w 640
 
@@ -424,6 +444,7 @@ statement) as Python code.
 Note that the version of Python is that of the notebook server.
 
 Examples:
+  
     %python x = 42
     %python import math
     %python x + math.pi
@@ -433,6 +454,7 @@ Examples:
 %reload_magics - reload the magics from the installed files
 
 Example:
+  
     %reload_magics
 
 This line magic will reload the magics installed in the
@@ -449,6 +471,7 @@ This line magic will restart the connection to the language
 kernel.
 
 Example:
+  
     %restart
 
 Note that you will lose all computed values.
@@ -467,6 +490,7 @@ The --language LANG option will prefix the file contents with
 appear before the contents of the file.
 
 Examples:
+  
     %run filename.ss
     %run -l python filename.py
 
@@ -488,6 +512,7 @@ This line magic will evaluate the CODE (either expression or
 statement) as Scheme code.
 
 Examples:
+  
     %scheme (define x 42)
     %scheme (import "math")
     %scheme (+ x + math.pi)
@@ -499,6 +524,7 @@ Examples:
 This line magic is used to set a variable to a Python value.
 
 Examples:
+  
     %set x 42
     %set x [1, 2, 3]
 
@@ -509,6 +535,7 @@ Examples:
 This line command will run the COMMAND in the bash shell.
 
 Examples:
+  
     %shell ls -al
     %shell cd
 
@@ -529,9 +556,10 @@ This magic will construct a Python file from the cell's
 content, a JSON structure.
 
 Example:
+  
     %%activity /home/teacher/activity1
     {"activity": "poll",
-     "instructors": ["teacher01"],
+     "instructors": ["teacher01","jovyan"],
      "results_file": "/home/teacher/activity1.results",
      "items": [{"id": "...",
                 "type": "multiple choice",
@@ -551,6 +579,7 @@ for a calysto.simulation.
 Requires calysto.
 
 Examples:
+  
    %%brain
    robot.forward(1)
 
@@ -567,6 +596,7 @@ This cell magic will step through the code in the cell,
 if the kernel supports debugging.
 
 Example:
+  
     %%debug
 
     (define x 1)
@@ -579,6 +609,7 @@ This cell magic will send the cell to the browser as
 HTML.
 
 Example:
+  
     %%dot
 
     graph A { a->b };
@@ -591,6 +622,7 @@ This cell magic will create or append the cell contents into/onto
 a file.
 
 Example:
+  
     %%file -a log.txt
     This will append this line onto the file "log.txt"
 
@@ -611,6 +643,7 @@ This cell magic will send the cell to the browser as
 HTML.
 
 Example:
+  
     %%html
 
     <script src="..."></script>
@@ -625,6 +658,7 @@ This cell magic will execute the contents of the cell as
 JavaScript in the browser.
 
 Example:
+  
     %%javascript
 
     element.html("Hello this is <b>bold</b>!")
@@ -657,6 +691,7 @@ Options:
 This cell magic will display the TEXT in the cell as LaTeX.
 
 Example:
+  
     %%latex
     $x_1 = \dfrac{a}{b}$
 
@@ -671,6 +706,7 @@ cell. The cell contents are just commands (macros
 or code in the kernel language).
 
 Example:
+  
     %%macro test
     print "Ok!"
 
@@ -688,6 +724,7 @@ the kernel must support the `do_function_direct`
 method.
 
 Example:
+
     %%pipe f1 | f2 | f3
     CELL CONTENTS
 
@@ -746,6 +783,7 @@ language.
 Note that the version of Python is that of the notebook server.
 
 Examples:
+  
     %%python
     x = 42
 
@@ -776,6 +814,7 @@ will be used as code for the cell to be evaluated by the host
 language.
 
 Examples:
+  
     %%scheme
     (define x 42)
 
@@ -800,6 +839,7 @@ Options:
  This shell command will run the cell contents in the bash shell.
 
  Example:
+  
      %%shell
         cd ..
         ls -al
@@ -818,6 +858,7 @@ This cell magic will put the contents or results of the cell
 into the system pager.
 
 Examples:
+  
     %%show
     This information will appear in the pager.
 
@@ -836,6 +877,7 @@ Put this magic at the top of a cell and the amount of time
 taken to execute the code will be displayed before the output.
 
 Example:
+  
     %%time
     [code for your language goes here!]
 
@@ -851,6 +893,7 @@ Defaults to use the language of the current kernel.
 'python' is an alias for 'python3'.
 
 Examples:
+  
    %%tutor -l python3
    a = 1
    b = 1
